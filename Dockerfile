@@ -11,5 +11,6 @@ WORKDIR /home/steam/steamcmd
 RUN curl -s https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz | tar -vxz && \
     chown -R steam /home/steam/steamcmd
 
+
 USER steam
 WORKDIR /home/steam/steamcmd
