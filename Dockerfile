@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 RUN adduser --home /home/steam --disabled-password --shell /bin/bash --gecos "steam user" --quiet steam
 
 RUN apt-get update && \
@@ -11,6 +11,7 @@ WORKDIR /home/steam/steamcmd
 RUN curl -s https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz | tar -vxz && \
     chown -R steam /home/steam/steamcmd
 
-
 USER steam
 WORKDIR /home/steam/steamcmd
+RUN /home/steam/steamcmd/steamcmd.sh +quit
+ENTRYPOINT ["/home/steam/steamcmd/steamcmd.sh"]
